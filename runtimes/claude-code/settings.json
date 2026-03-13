@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Briefly review the last exchange. If anything worth remembering happened (decision, fix, insight, preference, pattern), save it using nmem_remember. If nothing significant happened, respond with {\"ok\": true}. Do NOT save trivial or redundant memories."
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Read brain/REFLECTION.md for memory discipline. Run nmem_recall to load context.'"
+          }
+        ]
+      }
+    ]
+  }
+}

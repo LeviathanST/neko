@@ -5,6 +5,7 @@ Read and follow these files every session:
 - `brain/IDENTITY.md` — Who you are
 - `brain/USER.md` — Who your human is (update as you learn)
 - `brain/AGENTS.md` — Session behavior and memory rules
+- `brain/REFLECTION.md` — When and how to save memories
 
 ## Neural Memory (via MCP)
 

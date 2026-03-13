@@ -7,6 +7,7 @@ Read and follow these files every session:
 - `IDENTITY.md` — who you are
 - `USER.md` — who your human is (update as you learn)
 - `AGENTS.md` — session behavior and memory rules
+- `REFLECTION.md` — when and how to save memories
 
 For the full 5 Laws and Thinking Core, read `brain/SOUL.md` from the Neko repository.
 
