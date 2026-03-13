@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "neural-memory": {
+      "command": "nmem-mcp",
+      "env": {
+        "NMEM_BRAIN": "neko"
+      }
+    }
+  }
+}

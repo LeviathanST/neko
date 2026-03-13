@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "neural-memory": {
+      "command": "nmem-mcp",
+      "env": {
+        "NMEM_BRAIN": "neko"
+      },
+      "trust": true
+    }
+  },
+  "context": {
+    "fileName": ["NEKO.md", "GEMINI.md"]
+  }
+}

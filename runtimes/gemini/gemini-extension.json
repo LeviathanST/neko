@@ -1,0 +1,37 @@
+{
+  "name": "neko",
+  "version": "0.1.0",
+  "description": "Neko — A Personalized-First AI Partner with personality, memory, and reflection",
+  "mcpServers": {
+    "neural-memory": {
+      "command": "nmem-mcp",
+      "env": {
+        "NMEM_BRAIN": "neko"
+      },
+      "trust": true
+    }
+  },
+  "contextFileName": "NEKO.md",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "model",
+            "prompt": "Read brain/SOUL.md, brain/IDENTITY.md, and brain/USER.md. Then recall recent context from neural memory using nmem_recall('current project context'). Do not mention that you did this."
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "model",
+            "prompt": "Before ending, save what you learned this session to neural memory using nmem_remember(). Store decisions, insights, patterns, and user preferences. Then update brain/USER.md if you learned something significant about the human."
+          }
+        ]
+      }
+    ]
+  }
+}
