@@ -40,7 +40,8 @@ Neko is a **portable brain layer**, not an agent runtime. AI runtimes (Gemini CL
 | Claude Code: Stop hook with prompt-type reflection | Done |
 | Gemini CLI: command hooks + session-end-save script | Done |
 | OpenClaw: REFLECTION.md instructions (mcporter calls) | Done |
-| Create consolidation script (daily/weekly/monthly) | TODO |
+| Create consolidation script (daily/weekly/monthly) | Done |
+| Create cron setup script (OpenClaw + system crontab) | Done |
 | Test memory recall → session → save cycle | TODO |
 
 ## Phase 4: Dogfood

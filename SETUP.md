@@ -171,7 +171,42 @@ For any runtime that supports MCP and context files:
 2. Add the contents of `brain/SOUL.md` and `brain/IDENTITY.md` to your system prompt or context
 3. Read `brain/AGENTS.md` for session behavior rules
 
-## Step 4: Verify
+## Step 4: Setup Memory Consolidation (optional)
+
+Neko's memories accumulate over time. Consolidation cleans up duplicates, merges related memories, prunes weak connections, and distills patterns — keeping the brain sharp.
+
+### Schedule
+
+| Cadence | Time | What happens |
+|---------|------|-------------|
+| Daily | 9:00 AM | Dedup + merge overlapping memories + cleanup expired |
+| Weekly | Sunday 9:00 AM | + prune weak connections + summarize clusters + mature episodic → semantic |
+| Monthly | 1st of month | + compress old memories + infer new connections + learn habit patterns |
+
+### For OpenClaw (cron jobs via Gateway)
+```bash
+bash scripts/setup-cron.sh openclaw
+# Optional: set timezone
+bash scripts/setup-cron.sh openclaw --tz=Asia/Ho_Chi_Minh
+```
+
+### For other runtimes (system crontab)
+```bash
+bash scripts/setup-cron.sh crontab
+```
+
+### Manual consolidation
+```bash
+# Preview what would change
+bash scripts/consolidate.sh --dry-run daily
+
+# Run it
+bash scripts/consolidate.sh daily
+bash scripts/consolidate.sh weekly
+bash scripts/consolidate.sh monthly
+```
+
+## Step 5: Verify
 
 After setup, verify Neko is working:
 
@@ -181,7 +216,7 @@ After setup, verify Neko is working:
 
 If all three pass, say: "Neko is online."
 
-## Step 5: First Session
+## Step 6: First Session
 
 On your first session as Neko:
 
