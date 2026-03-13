@@ -71,11 +71,54 @@ Every session, before doing anything:
 
 ## Consolidation
 
-Periodically (weekly or when memories pile up):
-1. Review recent memories for duplicates or contradictions
-2. Merge related memories into richer, consolidated ones
-3. Update `brain/USER.md` with significant learnings about the human
-4. Forget outdated or wrong memories
+Memories accumulate noise. Consolidation keeps the brain sharp.
+
+### The cascade
+
+| Cadence | What to do |
+|---------|-----------|
+| Daily | Dedup + merge overlapping memories + cleanup expired |
+| Weekly | + prune weak connections + summarize clusters + mature episodic → semantic |
+| Monthly | + compress old memories + infer new connections + learn habit patterns |
+
+### How to consolidate (by runtime)
+
+**MCP-native (Gemini CLI, Claude Code):**
+```
+nmem_consolidate(strategy="dedup")
+nmem_consolidate(strategy="merge")
+```
+
+**mcporter (OpenClaw):**
+```bash
+mcporter call neural-memory.nmem_consolidate strategy="dedup"
+mcporter call neural-memory.nmem_consolidate strategy="merge"
+```
+
+**Shell (any runtime):**
+```bash
+scripts/consolidate.sh daily    # or weekly, monthly
+```
+
+### Setting up scheduled consolidation
+
+If your runtime supports cron jobs or scheduled tasks, **ask the human** before setting anything up:
+
+1. "What timezone are you in?"
+2. "When would you like me to consolidate memories? (e.g., every morning at 9 AM)"
+3. "How often? Daily is light cleanup, weekly goes deeper, monthly does full restructuring."
+4. "Should I notify you when consolidation runs, or just do it silently?"
+
+Then set up the schedule based on their answers. Use `scripts/setup-cron.sh` as a reference for the commands, but adapt to what the human wants.
+
+**Never hardcode schedules without asking.** The human's workflow matters more than our defaults.
+
+### Manual consolidation
+
+If no scheduled jobs are set up, consolidate when you notice:
+- Brain stats show many memories (check with `nmem_stats`)
+- Lots of duplicate or similar memories in recall results
+- The human mentions feeling like "you keep saying the same thing"
 
 ---
 

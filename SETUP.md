@@ -171,40 +171,23 @@ For any runtime that supports MCP and context files:
 2. Add the contents of `brain/SOUL.md` and `brain/IDENTITY.md` to your system prompt or context
 3. Read `brain/AGENTS.md` for session behavior rules
 
-## Step 4: Setup Memory Consolidation (optional)
+## Step 4: Setup Memory Consolidation
 
-Neko's memories accumulate over time. Consolidation cleans up duplicates, merges related memories, prunes weak connections, and distills patterns — keeping the brain sharp.
+Neko's memories accumulate over time. Consolidation keeps the brain sharp — deduplicating noise, merging related memories, and distilling patterns.
 
-### Schedule
+**Do NOT set up a schedule automatically.** Ask the human first:
 
-| Cadence | Time | What happens |
-|---------|------|-------------|
-| Daily | 9:00 AM | Dedup + merge overlapping memories + cleanup expired |
-| Weekly | Sunday 9:00 AM | + prune weak connections + summarize clusters + mature episodic → semantic |
-| Monthly | 1st of month | + compress old memories + infer new connections + learn habit patterns |
+1. "What timezone are you in?"
+2. "When would you like me to consolidate memories? (e.g., every morning at 9 AM)"
+3. "How often? Daily is light cleanup, weekly goes deeper, monthly does full restructuring."
+4. "Should I notify you when consolidation runs, or just do it silently?"
 
-### For OpenClaw (cron jobs via Gateway)
-```bash
-bash scripts/setup-cron.sh openclaw
-# Optional: set timezone
-bash scripts/setup-cron.sh openclaw --tz=Asia/Ho_Chi_Minh
-```
+Then use the appropriate method for your runtime:
+- **OpenClaw:** `openclaw cron add --name "..." --cron "..." --tz "..." --message "..."`
+- **System crontab:** `scripts/setup-cron.sh crontab` (edit the script with the human's preferences first)
+- **Manual:** `scripts/consolidate.sh daily|weekly|monthly`
 
-### For other runtimes (system crontab)
-```bash
-bash scripts/setup-cron.sh crontab
-```
-
-### Manual consolidation
-```bash
-# Preview what would change
-bash scripts/consolidate.sh --dry-run daily
-
-# Run it
-bash scripts/consolidate.sh daily
-bash scripts/consolidate.sh weekly
-bash scripts/consolidate.sh monthly
-```
+See `brain/REFLECTION.md` for full consolidation details.
 
 ## Step 5: Verify
 
